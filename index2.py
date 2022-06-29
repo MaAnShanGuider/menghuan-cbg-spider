@@ -1,7 +1,10 @@
 import json
+import string
 from warnings import catch_warnings
 import requests
 import time
+import datetime
+
 import execjs
 # loginUrl = "https://xyq-m.cbg.163.com/cgi/api/login"
 # # loginReqDts = json.dumps({"username": "1436089483@qq.com","page_session_id": "01818A6B-515A-8161-43CE-909512EFB14D" })
@@ -46,7 +49,7 @@ class SimulateLogin:
 	bindRoleReqDts = {"roleid": "42338280","serverid":"416", "page_session_id": "0181A946-984D-9819-D238-2D1AF5854F64" } # 绑定角色data
 	updateStatusReqDts = {"view_loc":'equip_list|{"tag": "softmax_fm_slim_with_c_h_price_pdg"}',"page_session_id":"0181A946-984D-9819-D238-2D1AF5854F64","_":"1656388203709"} # 更新登录状态params
 	getRecommendListReqDts = {
-		"callback":"jQuery33105235710525002282_1656394572950",
+		"callback":"jQuery33105235710525002282_" + str(int(time.time())),
 		"act":"recommd_by_role",
 		"client_type":"h5",
 		"count":"15",
@@ -72,7 +75,7 @@ class SimulateLogin:
 		"cache-control": "no-cache",
 		"content-length": "81",
 		"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-		"cookie": "vjuids=5190c7d9.163457a8911.0.62cb55118f42; _ntes_nuid=87435b82ae0ae7a8711f2b21989860ce; vjlast=1525879048.1539873477.12; mail_psc_fingerprint=80a8d6b8bf06047fece1fbd1243c6f63; nts_mail_user=woaimixifan@163.com:-1:1; _ga=GA1.2.956666770.1597156669; _ntes_nnid=87435b82ae0ae7a8711f2b21989860ce,1630849634304; timing_user_id=time_y4JiVorB2c; _flow_group=g4; is_log_active_stat=1; _external_mark=direct; fingerprint=feqfgkfzk7ygabzl; trace_session_id=0181A946-984D-9819-D238-2D1AF5854F64; NTES_P_UTID=VOkylRIDQUWWpRdS6z7MHluqdZlBR9Q9|1656338105; NTES_SESS=Bpzg.qyuuuC6HnSMHChdKWXWtnxtqVJzKiHTPy0rPWb4VQXFV_orx56QsOZNjtKB4P1HOM9dAhZf53TA.QYiw5YFz.A7p70WCTjVrfj.lcvw9WNw2i2q4CU7tN2RZ7_vPX3Dxkvm9_FywZ__K0DKh5vV9I5TcDy42HoVKjOBmH2AdyplYK3tKLUmJj7.ZOC24JKPnXndNXq1434ajCIkQWleJ; NTES_PASSPORT=UngIC0bx43LLxv0LXeDyeqcF59NV9YYP1y6VyJ2.X27NkrW0kCD17oFrg5wpUmv.dqEN5V3i2SwBSSqvgdOJxC8lKF_tOC80cLsY4Y0RfzuQn_5eFBS14ocahBSniXKI88nUS7va7hKRG716dsDYAnFyHe3xv1shA4OV0gnWBrGnRE7sG1kNg9o.Ru8aEWCV1; S_INFO=1656338105|0|##|1436089483@qq.com; P_INFO=1436089483@qq.com|1656338105|1|cbg|00&99|zhj&1656315243&cbg#zhj&330100#10#0#0|&0|cbg|1436089483@qq.com",
+		# "cookie":  NTES_SESS=",
 		"origin": "https://xyq-m.cbg.163.com",
 		"pragma": "no-cache",
 		"referer": "https://xyq-m.cbg.163.com/cgi/mweb/show_login?back_url=%2Fcgi%2Fmweb%2Flogin%2Farea%3Fback_url%3D%252Fcgi%252Fmweb%252F",
@@ -82,25 +85,48 @@ class SimulateLogin:
 		"user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
 		"x-requested-with": "XMLHttpRequest",
 	}
+	loginCookie = {
+		"vjuids": "5190c7d9.163457a8911.0.62cb55118f42",
+		"_ntes_nuid": "87435b82ae0ae7a8711f2b21989860ce",
+		"vjlast": "1525879048.1539873477.12",
+		"mail_psc_fingerprint": "80a8d6b8bf06047fece1fbd1243c6f63",
+		"nts_mail_user": "woaimixifan@163.com:-1:1",
+		"_ga": "GA1.2.956666770.1597156669",
+		"_ntes_nnid": "87435b82ae0ae7a8711f2b21989860ce,1630849634304",
+		"timing_user_id": "time_y4JiVorB2c",
+		"_flow_group": "g4",
+		"is_log_active_stat": "1",
+		"_external_mark": "direct",
+		"fingerprint": "feqfgkfzk7ygabzl",
+		"trace_session_id":  str(int(round(time.time() * 1000))),
+		"NTES_P_UTID": "VOkylRIDQUWWpRdS6z7MHluqdZlBR9Q9|" + str(int(time.time())),
+		"NTES_SESS": "Bpzg.qyuuuC6HnSMHChdKWXWtnxtqVJzKiHTPy0rPWb4VQXFV_orx56QsOZNjtKB4P1HOM9dAhZf53TA.QYiw5YFz.A7p70WCTjVrfj.lcvw9WNw2i2q4CU7tN2RZ7_vPX3Dxkvm9_FywZ__K0DKh5vV9I5TcDy42HoVKjOBmH2AdyplYK3tKLUmJj7.ZOC24JKPnXndNXq1434ajCIkQWleJ",
+		"NTES_PASSPORT": "UngIC0bx43LLxv0LXeDyeqcF59NV9YYP1y6VyJ2.X27NkrW0kCD17oFrg5wpUmv.dqEN5V3i2SwBSSqvgdOJxC8lKF_tOC80cLsY4Y0RfzuQn_5eFBS14ocahBSniXKI88nUS7va7hKRG716dsDYAnFyHe3xv1shA4OV0gnWBrGnRE7sG1kNg9o.Ru8aEWCV1",
+		"S_INFO": str(int(time.time())) + "|0|##|1436089483@qq.com",
+		"P_INFO": "1436089483@qq.com|" + str(int(time.time()))+ "|1|cbg|00&99|zhj&"+ str(int(time.time())) +"&cbg#zhj&330100#10#0#0|&0|cbg|1436089483@qq.com" ,
+	}
 	commonCookie = {} # 后续的公共cookie
 
 	def __init__(self) -> None:
+		print("-----初始化时间戳-----")
+
+		self.initTimeStamp() 
 		print("-----开始执行-----")
 		self.login() # 先跑登录
 
-		# self.bindRole() # 再跑绑定角色
+		self.bindRole() # 再跑绑定角色
 		self.getRecommendList() # 获取列表
 	
 	
 		pass
 	def login(self)->None: # 跑登录接口
 		print("-----执行登录-----")
-		res =  requests.post(self.loginUrl, data=self.loginReqDts,headers=self.loginHeaders, cookies=self.commonCookie, timeout=self.timeout)
+		res =  requests.post(self.loginUrl, data=self.loginReqDts,headers=self.loginHeaders, cookies=self.loginCookie, timeout=self.timeout)
 		self.commonCookie.update(requests.utils.dict_from_cookiejar(res.cookies))
 		print("-----登录响应-----")
 		result = res.json()
 		print(result)
-		if result["status"] == 8:
+		if (result["status"] == 8 or result["status"] == 2):
 			self.updateStatus()
 		# self.updateStatus()
 		pass
@@ -140,8 +166,24 @@ class SimulateLogin:
 			print("报错了",e) 
 		
 		pass
+	def resetTimeStamp(self)->string: # 重置时间戳
+		ctx = execjs.compile(open('./create_page_session_id.js','r',encoding='utf-8').read())
+		sign = ctx.eval("le()")
 
-# apiInstance =  SimulateLogin()
-ctx = execjs.compile(open('./create_page_session_id.js','r',encoding='utf-8').read())
-sign = ctx.eval("le()")
-print(sign)
+		return sign
+	def initTimeStamp(self)->None: # 初始化时间戳
+		sign = self.resetTimeStamp()
+		self.loginReqDts["page_session_id"] = sign
+		self.bindRoleReqDts["page_session_id"] = sign
+		self.updateStatusReqDts["page_session_id"] = sign
+		self.getRecommendListReqDts["page_session_id"] = sign
+		self.getRecommendListReqDts["_"] = self.getTimeStamp()
+
+	def getTimeStamp(self)->int: # 获取13位时间戳
+		# current_milli_time = lambda: int(round(time.time() * 1000))
+
+		return int(round(time.time() * 1000))
+apiInstance =  SimulateLogin()
+
+
+# print(int(round(time.time() * 1000)))
