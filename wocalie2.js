@@ -2,8 +2,8 @@ let window = {};
 let location = {
     protocol: "http:"
 }
-if ("undefined" == typeof I$)
-    I$ = function () {
+if ("undefined" == typeof MyFunc)
+    MyFunc = function () {
         var e = {}
             , t = function () {
                 return !1
@@ -45,7 +45,7 @@ if ("undefined" == typeof I$)
             return a
         }
     }();
-I$("wodiu", function (e, t, i, n) {
+MyFunc("wodiu", function (e, t, i, n) {
     var s = String.prototype;
     if (!s.trim)
         s.trim = function () {
@@ -87,7 +87,7 @@ I$("wodiu", function (e, t, i, n) {
     }
     return e
 });
-I$("woca", function (e, t, i, n, s) {
+MyFunc("woca", function (e, t, i, n, s) {
     var a = "Win32"
         , r = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1';
     var o = {
@@ -127,7 +127,7 @@ I$("woca", function (e, t, i, n, s) {
         e.copy(e.P("nej.p"), t);
     return t
 }, "wodiu");
-I$("cb8d4f18701219d40dd544cd8b92c6b6", function (e, t, i, n) {
+MyFunc("cb8d4f18701219d40dd544cd8b92c6b6", function (e, t, i, n) {
     e.__forIn = function (e, t, i) {
         if (!e || !t)
             return null;
@@ -145,11 +145,11 @@ I$("cb8d4f18701219d40dd544cd8b92c6b6", function (e, t, i, n) {
     };
     return e
 });
-I$("ccd88ad78fcab04c80ceaacee2b1c681", function (e, t, i, n, s, a) {
+MyFunc("ccd88ad78fcab04c80ceaacee2b1c681", function (e, t, i, n, s, a) {
 
     return e
 }, "cb8d4f18701219d40dd544cd8b92c6b6", "woca");
-I$("sailimu", function (e, t, i, n, s, a) {
+MyFunc("sailimu", function (e, t, i, n, s, a) {
     i._$klass = function () {
         var e = function () {
             return "[object Function]" !== n.toString.call(arguments[0])
@@ -243,7 +243,7 @@ I$("sailimu", function (e, t, i, n, s, a) {
     }
     return i
 }, "wodiu", "ccd88ad78fcab04c80ceaacee2b1c681");
-I$("8fd03edddb19cf8c294f56ca6638c475", function (e, t, i, n, s, a) {
+MyFunc("8fd03edddb19cf8c294f56ca6638c475", function (e, t, i, n, s, a) {
     var r = function (e, t) {
         try {
 
@@ -487,7 +487,7 @@ I$("8fd03edddb19cf8c294f56ca6638c475", function (e, t, i, n, s, a) {
 }, "wodiu", "ccd88ad78fcab04c80ceaacee2b1c681");
 
 
-I$("703889c7eb7b7020f9b7e23d6c3a0b64", function (e, t) {
+MyFunc("703889c7eb7b7020f9b7e23d6c3a0b64", function (e, t) {
     var i = {};
     t._$merge = function (t) {
         e._$merge(i, t)
@@ -501,7 +501,7 @@ I$("703889c7eb7b7020f9b7e23d6c3a0b64", function (e, t) {
     return t
 }, "8fd03edddb19cf8c294f56ca6638c475");
 
-I$("ding", function (e, t, i, n, s, a, r, o, c, d) {
+MyFunc("ding", function (e, t, i, n, s, a, r, o, c, d) {
     var _ = {}, l, u = {}, f = {}, h = {};
 
 
@@ -511,7 +511,7 @@ I$("ding", function (e, t, i, n, s, a, r, o, c, d) {
         e.copy(e.P("nej.e"), r);
     return r
 }, "wodiu", "ab8abeca574cb254ef6aea89d6984f91", "8fd03edddb19cf8c294f56ca6638c475", "a100971a16ec757a0282a3b2cc059019", "703889c7eb7b7020f9b7e23d6c3a0b64", "331dc65215bd207feab55e8d55f69da4");
-I$("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
+MyFunc("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
     return s
 }, "wodiu", "sailimu", "a100971a16ec757a0282a3b2cc059019", "8fd03edddb19cf8c294f56ca6638c475");
 !function () {
@@ -870,6 +870,7 @@ I$("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
                     "pkcs#5" === h && i !== _)
                     for (var m = l - e.length % l, g = 0; g < m; g++)
                         e.push(m);
+                console.log(JSON.stringify(e));
                 var b = new Array(32);
                 !function (e, t, i) {
                     for (var n = new Array(4), s = new Array(4), r = 0; r < 4; r++)
@@ -932,7 +933,6 @@ I$("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
                         y -= l,
                         C += l
                 }
-                console.log(d);
                 return "pkcs#5" === h && i === _ && (h = v[v.length - 1],
                     v.splice(v.length - h, h)),
                     "array" !== c ? i !== _ ? v.map(function (e) {

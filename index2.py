@@ -7,24 +7,22 @@ import execjs
 
 node = execjs.get() 
 
-wodiu2 = r"""
 
-"""
 # regex = re.compile(r"[\xA0\u1680\u180E\u2000-\u200A\u202f\u205f]")
 regex = re.compile(r"[\xA0\u1680\u2000-\u200A\u202f\u205f]")
 ctx = execjs.compile(open('./create_page_session_id.js','r',encoding='utf-8').read())
 # ctx2 = execjs.compile(regex.sub("",content))
 # wodiu = open('./wocalie2.js','r',encoding='utf-8').read() .encode('GBK','ignore').decode('GBk') 
-wodiu = open('./wocalie4.js','r',encoding='utf-8').read() 
+# wodiu = open('./wocalie2.js','r',encoding='utf-8').read()
 # print(wodiu)
-ctx2 = execjs.compile(wodiu)
-# ctx3 = execjs.compile(open('./wocalie3.js','a+',encoding='utf-8').read())
+# ctx2 = execjs.compile(wodiu)
+ctx3 = execjs.compile(open('./wocalie2.js','r',encoding='utf-8').read())
 
 sign = ctx.eval("le()")
 
-encParams = ctx2.eval("createEncParams()")
+encParams = ctx3.eval("createEncParams()")
 # encParams = ctx2.eval("createEncParams()")
-print(sign)
+print(encParams)
 # print(encParams)
 class SimulateLogin:
 
