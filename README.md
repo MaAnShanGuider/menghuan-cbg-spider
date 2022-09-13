@@ -27,3 +27,9 @@
                  encoding="utf-8", errors=None, text=None, umask=-1):
 ```
 即可
+
+博客地址:
+
+[地址1](https://zhuanlan.zhihu.com/p/193117566)
+[地址2](https://blog.csdn.net/qq_42306041/article/details/125300136)
+[地址2](https://zhaojiafu.blog.csdn.net/article/details/99984352)
