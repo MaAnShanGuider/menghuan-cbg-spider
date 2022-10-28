@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<span>test</span>
+	<button>触发</button>
+</body>
+<script src="./wocalie2.js"></script>
+<script>
+	var btn = document.getElementsByTagName("button")[0];
+
+	btn.onclick = function (e) {
+		var str = `{"pd":"cbg","pkid":"aqpOBwV","pkht":"cbg.163.com","channel":0,"topURL":"https://xyq-m.cbg.163.com/cgi/mweb/show_login?back_url=%2Fcgi%2Fmweb%2Flogin%2Farea%3Fback_url%3Dhttps%253A%252F%252Fxyq-m.cbg.163.com%252Fcgi%252Fmweb%252Flogin%252Frole%252F35%252F416%253Fback_url%2","rtid":"${createRtId()}"}"`
+		console.log(window.URSSM4.encrypt(str, "BC60B8B9E4FFEFFA219E5AD77F11F9E2"))
+	}
+
+</script>
+
+</html>

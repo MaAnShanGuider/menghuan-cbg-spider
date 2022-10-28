@@ -1,7 +1,7 @@
-let window = {};
-let location = {
-    protocol: "http:"
-}
+// let window = {};
+// let location = {
+//     protocol: "http:"
+// }
 if ("undefined" == typeof MyFunc)
     MyFunc = function () {
         var e = {}
@@ -46,687 +46,32 @@ if ("undefined" == typeof MyFunc)
         }
     }();
 MyFunc("wodiu", function (e, t, i, n) {
-    var s = String.prototype;
-    if (!s.trim)
-        s.trim = function () {
-            var e = /(?:^\s+)|(?:\s+$)/g;
-            return function () { return "" }
-        }();
-    if (!this.console)
-        this.console = {
-            log: i,
-            error: i
-        };
-    if (!0) {
-        NEJ = this.NEJ || {};
-        NEJ.copy = function (e, i) {
-            e = e || {};
-            i = i || t;
-            for (var n in i)
-                if (i.hasOwnProperty(n))
-                    e[n] = i[n];
-            return e
-        }
-            ;
-        NEJ = NEJ.copy(NEJ, {
-            O: t,
-            R: n,
-            F: i,
-            P: function (e) {
-
-                if (!e || !e.length)
-                    return null;
-                var t = this;
-                for (var i = e.split("."), n = i.length, s = "window" == i[0] ? 1 : 0; s < n; t = t[i[s]] = t[i[s]] || {},
-                    s++)
-                    ;
-                return t
-            }
-        });
-        return NEJ
+    NEJ = this.NEJ || {};
+    NEJ.copy = function (e, i) {
+        e = e || {};
+        i = i || t;
+        for (var n in i)
+            if (i.hasOwnProperty(n))
+                e[n] = i[n];
+        return e
     }
-    return e
-});
-MyFunc("woca", function (e, t, i, n, s) {
-    var a = "Win32"
-        , r = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1';
-    var o = {
-        mac: a,
-        win: a,
-        linux: a,
-        ipad: r,
-        ipod: r,
-        iphone: a,
-        android: r
-    };
-
-    t._$IS = o;
-    for (var c in o)
-        o[c] = new RegExp(c, "i").test(o[c]);
-    o.ios = o.ipad || o.iphone || o.ipod;
-    o.tablet = o.ipad;
-    o.desktop = o.mac || o.win || o.linux && !o.android;
-    t._$is = function (e) {
-
-        return !!o[e]
-    };
-    var d = {
-        engine: "unknow",
-        release: "unknow",
-        browser: "unknow",
-        version: "unknow",
-        prefix: {
-            css: "",
-            pro: "",
-            clz: ""
-        }
-    };
-    t._$KERNEL = d;
-    t._$SUPPORT = {};
-    if (!0)
-        e.copy(e.P("nej.p"), t);
-    return t
-}, "wodiu");
-MyFunc("cb8d4f18701219d40dd544cd8b92c6b6", function (e, t, i, n) {
-    e.__forIn = function (e, t, i) {
-        if (!e || !t)
-            return null;
-        var n = Object.keys(e);
-        for (var s = 0, a = n.length, r, o; s < a; s++) {
-            r = n[s];
-            o = t.call(i || null, e[r], r, e);
-            if (o)
-                return r
-        }
-        return null
-    };
-    e.__forEach = function (e, t, i) {
-        e.forEach(t, i)
-    };
-    return e
-});
-MyFunc("ccd88ad78fcab04c80ceaacee2b1c681", function (e, t, i, n, s, a) {
-
-    return e
-}, "cb8d4f18701219d40dd544cd8b92c6b6", "woca");
-MyFunc("sailimu", function (e, t, i, n, s, a) {
-    i._$klass = function () {
-        var e = function () {
-            return "[object Function]" !== n.toString.call(arguments[0])
-        };
-        var i = function (e, i) {
-            for (; i;) {
-                var n = i.prototype
-                    , s = t.__forIn(n, function (t) {
-                        return e === t
-                    });
-                if (null != s)
-                    return {
-                        name: s,
-                        klass: i
-                    };
-                i = i._$super
-            }
-        };
-        return function () {
-
-            var n = function () {
-                return this.__init.apply(this, arguments)
-            };
-            n.prototype.__init = s;
-            n._$extend = function (n, s) {
-                if (!e(n)) {
-                    var a = this;
-                    if (s !== !1)
-                        t.__forIn(n, function (t, i) {
-                            if (!e(t))
-                                a[i] = t
-                        });
-                    this._$super = n;
-                    var r = function () { };
-                    r.prototype = n.prototype;
-                    this.prototype = new r;
-                    this.prototype.constructor = this;
-                    var o = []
-                        , c = {};
-                    var d = function (e, t) {
-                        var n = i(e, t);
-                        if (n) {
-                            if (o[o.length - 1] != n.name)
-                                o.push(n.name);
-                            c[n.name] = n.klass._$super;
-                            return n.name
-                        }
-                    };
-                    this.prototype.__super = function () {
-                        var e = o[o.length - 1]
-                            , t = arguments.callee.caller;
-                        if (!e)
-                            e = d(t, this.constructor);
-                        else {
-                            var i = c[e].prototype;
-                            if (!i.hasOwnProperty(t) || t != i[e])
-                                e = d(t, this.constructor);
-                            else
-                                c[e] = c[e]._$super
-                        }
-                        var n = c[e].prototype[e].apply(this, arguments);
-                        if (e == o[o.length - 1]) {
-                            o.pop();
-                            delete c[e]
-                        }
-                        return n
-                    }
-                        ;
-                    if (!0) {
-                        var _ = this.prototype;
-                        _.__supInit = _.__super;
-                        _.__supReset = _.__super;
-                        _.__supDestroy = _.__super;
-                        _.__supInitNode = _.__super;
-                        _.__supDoBuild = _.__super;
-                        _.__supOnShow = _.__super;
-                        _.__supOnHide = _.__super;
-                        _.__supOnRefresh = _.__super;
-                        this._$supro = n.prototype
-                    }
-                    return this.prototype
-                }
-            }
+    NEJ = NEJ.copy(NEJ, {
+        O: t,
+        R: n,
+        F: i,
+        P: function (e) {
+            if (!e || !e.length)
+                return null;
+            var t = this;
+            for (var i = e.split("."), n = i.length, s = "window" == i[0] ? 1 : 0; s < n; t = t[i[s]] = t[i[s]] || {},
+                s++)
                 ;
-            return n
+            return t
         }
-    }();
-    if (!0) {
-        e.C = i._$klass;
-        e.copy(this.NEJ, e)
-    }
-    return i
-}, "wodiu", "ccd88ad78fcab04c80ceaacee2b1c681");
-MyFunc("8fd03edddb19cf8c294f56ca6638c475", function (e, t, i, n, s, a) {
-    var r = function (e, t) {
-        try {
+    });
+    return NEJ
+});
 
-            t = t.toLowerCase();
-            if (null === e)
-                return "null" == t;
-            if (void 0 === e)
-                return "undefined" == t;
-            else
-                return n.toString.call(e).toLowerCase() == "[object " + t + "]"
-        } catch (i) {
-            return !1
-        }
-    };
-    i._$isFunction = function (e) {
-
-        return r(e, "function")
-    };
-    i._$isString = function (e) {
-        return r(e, "string")
-    };
-    i._$isNumber = function (e) {
-        return r(e, "number")
-    };
-    i._$isBoolean = function (e) {
-        return r(e, "boolean")
-    };
-    i._$isDate = function (e) {
-        return r(e, "date")
-    };
-    i._$isArray = function (e) {
-        return r(e, "array")
-    };
-    i._$isObject = function (e) {
-        return r(e, "object")
-    };
-    i._$length = 2;
-    i._$loop = function (e, n, s) {
-        if (i._$isObject(e) && i._$isFunction(n))
-            return t.__forIn.apply(t, arguments);
-        else
-            return null
-    };
-    i._$indexOf = function (e, t) {
-        var n = i._$isFunction(t) ? t : function (e) {
-            return e === t
-        }
-            , s = i._$forIn(e, n);
-        return null != s ? s : -1
-    };
-    i._$binSearch = function () {
-        var e;
-        var t = function (i, n, s) {
-            if (n > s)
-                return -1;
-            var a = Math.ceil((n + s) / 2)
-                , r = e(i[a], a, i);
-            if (0 == r)
-                return a;
-            if (r < 0)
-                return t(i, n, a - 1);
-            else
-                return t(i, a + 1, s)
-        };
-        return function (i, n) {
-            e = n || s;
-            return t(i, 0, i.length - 1)
-        }
-    }();
-    i._$reverseEach = function (e, t, n) {
-        if (e && e.length && i._$isFunction(t))
-            for (var s = e.length - 1; s >= 0; s--)
-                if (t.call(n, e[s], s, e))
-                    return s;
-        return null
-    };
-    i._$forEach = function (e, n, s) {
-        if (e && e.length && i._$isFunction(n))
-            if (!e.forEach)
-                i._$forIn.apply(i, arguments);
-            else
-                t.__forEach(e, n, s);
-    };
-    i._$forIn = function (e, t, n) {
-        if (!e || !i._$isFunction(t))
-            return null;
-        if (i._$isNumber(e.length)) {
-            for (var s = 0, a = e.length; s < a; s++)
-                if (t.call(n, e[s], s, e))
-                    return s
-        } else if (i._$isObject(e))
-            return i._$loop(e, t, n);
-        return null
-    };
-    i._$encode = function (e, t) { return "" };
-    i._$escape = function () {
-        return function (n) { }
-    }();
-    i._$unescape = function () {
-
-        return function (t) { }
-    }();
-    i._$format = function () {
-        var e = {
-            i: !0,
-            r: /\byyyy|yy|MM|cM|eM|M|dd|d|HH|H|mm|ms|ss|m|s|w|ct|et\b/g
-        }
-            , t = []
-            , n = ["A.M.", "P.M."]
-            , s = []
-            , a = []
-            , r = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-        var o = function (e) {
-            e = parseInt(e) || 0;
-            return (e < 10 ? "0" : "") + e
-        };
-        var c = function (e) {
-            return e < 12 ? 0 : 1
-        };
-        return function (d, _, l) {
-            if (!d || !_)
-                return "";
-            d = i._$var2date(d);
-            e.yyyy = d.getFullYear();
-            e.yy = ("" + e.yyyy).substr(2);
-            e.M = d.getMonth() + 1;
-            e.MM = o(e.M);
-            e.eM = r[e.M - 1];
-            e.cM = a[e.M - 1];
-            e.d = d.getDate();
-            e.dd = o(e.d);
-            e.H = d.getHours();
-            e.HH = o(e.H);
-            e.m = d.getMinutes();
-            e.mm = o(e.m);
-            e.s = d.getSeconds();
-            e.ss = o(e.s);
-            e.ms = d.getMilliseconds();
-            e.w = s[d.getDay()];
-            var u = c(e.H);
-            e.ct = t[u];
-            e.et = n[u];
-            if (l)
-                e.H = e.H % 12;
-            return i._$encode(e, _)
-        }
-    }();
-    i._$var2date = function (e) {
-        var n = e;
-        if (i._$isString(e))
-            n = new Date(t.__str2time(e));
-        if (!i._$isDate(n))
-            n = new Date(e);
-        return n
-    };
-    i._$fixed = function (e, t) {
-        return parseFloat(new Number(e).toFixed(t))
-    };
-    i._$absolute = "";
-    i._$url2origin = function () {
-
-        var e = /^([\w]+?:\/\/.*?(?=\/|$))/i;
-        return function (t) {
-            if (e.test(t || ""))
-                return RegExp.$1.toLowerCase();
-            else
-                return ""
-        }
-    }();
-
-    ;
-
-    ;
-
-    ;
-    i._$array2object = function (e, t) {
-        var n = {};
-        i._$forEach(e, function (e) {
-            var i = e;
-            if (t)
-                i = t(e);
-            if (null != i)
-                n[i] = e
-        });
-        return n
-    };
-
-
-
-    i._$uniqueID = function () {
-        var e = +new Date;
-        return function () {
-            return "" + e++
-        }
-    }();
-
-    i._$merge = function () {
-        var e = arguments.length - 1
-            , t = arguments[e];
-        if (i._$isFunction(t))
-            e -= 1;
-        else
-            t = s;
-        var n = arguments[0] || {};
-        for (var a = 1; a <= e; a++)
-            i._$loop(arguments[a], function (e, i) {
-                if (!t(e, i))
-                    n[i] = e
-            });
-        return n
-    };
-    i._$fetch = function (e, t) {
-        if (t)
-            i._$loop(e, function (e, i, n) {
-                var s = t[i];
-                if (null != s)
-                    n[i] = s
-            });
-        return e
-    };
-    i._$hasProperty = function (e) {
-        if (!e)
-            return !1;
-        if (null != e.length)
-            return e.length > 0;
-        var t = 0;
-        i._$loop(e, function () {
-            t++;
-            return t > 0
-        });
-        return t > 0
-    };
-    if (!0) {
-        e.Q = i._$query;
-        e.X = i._$merge;
-        e.EX = i._$fetch;
-        e.copy(this.NEJ, e);
-        e.copy(e.P("nej.u"), i)
-    }
-    return i
-}, "wodiu", "ccd88ad78fcab04c80ceaacee2b1c681");
-
-
-MyFunc("703889c7eb7b7020f9b7e23d6c3a0b64", function (e, t) {
-    var i = {};
-    t._$merge = function (t) {
-        e._$merge(i, t)
-    };
-    t._$dump = function () {
-        return i
-    };
-    t._$clear = function () {
-        i = {}
-    };
-    return t
-}, "8fd03edddb19cf8c294f56ca6638c475");
-
-MyFunc("ding", function (e, t, i, n, s, a, r, o, c, d) {
-    var _ = {}, l, u = {}, f = {}, h = {};
-
-
-
-    s._$merge(_);
-    if (!0)
-        e.copy(e.P("nej.e"), r);
-    return r
-}, "wodiu", "ab8abeca574cb254ef6aea89d6984f91", "8fd03edddb19cf8c294f56ca6638c475", "a100971a16ec757a0282a3b2cc059019", "703889c7eb7b7020f9b7e23d6c3a0b64", "331dc65215bd207feab55e8d55f69da4");
-MyFunc("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
-    return s
-}, "wodiu", "sailimu", "a100971a16ec757a0282a3b2cc059019", "8fd03edddb19cf8c294f56ca6638c475");
-!function () {
-    if ("undefined" == typeof TrimPath) {
-        TrimPath = {};
-        if ("undefined" != typeof exports)
-            TrimPath = exports
-    }
-    var e = {}, t = [], i = /\s+/g, n = +new Date, s, a, r;
-    var o = function () {
-        var e = /^\s*[\[\{'"].*?[\]\}'"]\s*$/
-            , t = /[\&\|\<\>\+\-\*\/\%\,\(\)\[\]\?\:\!\=\;]/
-            , i = /^(?:defined|null|undefined|true|false|instanceof|new|this|typeof|\$v|[\d]+)$/i
-            , n = /^new\s+/
-            , s = /['"]/;
-        var a = function (t) { };
-        return function (i) {
-            i = i || "";
-            if (i && !e.test(i)) {
-                var n = i.split(t);
-                for (var s = 0, r = n.length; s < r; s++)
-                    a(n[s])
-            }
-        }
-    }();
-    var c = function (e) {
-        if ("in" != e[2])
-            throw "bad for loop statement: " + e.join(" ");
-        t.push(e[1]);
-        o(e[3]);
-        return "var __HASH__" + e[1] + " = " + e[3] + "," + e[1] + "," + e[1] + "_count=0;if (!!__HASH__" + e[1] + ")for(var " + e[1] + "_key in __HASH__" + e[1] + "){" + e[1] + " = __HASH__" + e[1] + "[" + e[1] + "_key];if (typeof(" + e[1] + ')=="function") continue;' + e[1] + "_count++;"
-    };
-    var d = function () {
-        var e = t[t.length - 1];
-        return "}; if(!__HASH__" + e + "||!" + e + "_count){"
-    };
-    var _ = function () {
-        t.pop();
-        return "};"
-    };
-    var l = function (e) {
-        if ("as" != e[2])
-            throw "bad for list loop statement: " + e.join(" ");
-        var t = e[1].split("..");
-        if (t.length > 1) {
-            o(t[0]);
-            o(t[1]);
-            return "for(var " + e[3] + "," + e[3] + "_index=0," + e[3] + "_beg=" + t[0] + "," + e[3] + "_end=" + t[1] + "," + e[3] + "_length=parseInt(" + e[3] + "_end-" + e[3] + "_beg+1);" + e[3] + "_index<" + e[3] + "_length;" + e[3] + "_index++){" + e[3] + " = " + e[3] + "_beg+" + e[3] + "_index;"
-        } else {
-            o(e[1]);
-            return "for(var __LIST__" + e[3] + " = " + e[1] + "," + e[3] + "," + e[3] + "_index=0," + e[3] + "_length=__LIST__" + e[3] + ".length;" + e[3] + "_index<" + e[3] + "_length;" + e[3] + "_index++){" + e[3] + " = __LIST__" + e[3] + "[" + e[3] + "_index];"
-        }
-    };
-    var u = function (e) { };
-    var f = function (e) {
-        if (!e[1])
-            throw "bad include statement: " + e.join(" ");
-        return 'if (typeof inline == "function"){__OUT.push(inline('
-    };
-    var h = function (e, t) {
-        o(t.slice(1).join(" "));
-        return e
-    };
-    var p = function (e) {
-        return h("if(", e)
-    };
-    var m = function (e) {
-        return h("}else if(", e)
-    };
-    var g = function (e) {
-        return h("var ", e)
-    };
-    a = {
-        blk: /^\{(cdata|minify|eval)/i,
-        tag: "forelse|for|list|if|elseif|else|var|macro|break|notrim|trim|include",
-        def: {
-            "if": {
-                pfix: p,
-                sfix: "){",
-                pmin: 1
-            },
-            "else": {
-                pfix: "}else{"
-            },
-            elseif: {
-                pfix: m,
-                sfix: "){",
-                pdft: "true"
-            },
-            "/if": {
-                pfix: "}"
-            },
-            "for": {
-                pfix: c,
-                pmin: 3
-            },
-            forelse: {
-                pfix: d
-            },
-            "/for": {
-                pfix: _
-            },
-            list: {
-                pfix: l,
-                pmin: 3
-            },
-            "/list": {
-                pfix: "};"
-            },
-            "break": {
-                pfix: "break;"
-            },
-            "var": {
-                pfix: g,
-                sfix: ";"
-            },
-            macro: {
-                pfix: u
-            },
-            "/macro": {
-                pfix: 'return __OUT.join("");};'
-            },
-            trim: {
-                pfix: function () {
-                    s = !0
-                }
-            },
-            "/trim": {
-                pfix: function () {
-                    s = null
-                }
-            },
-            inline: {
-                pfix: f,
-                pmin: 1,
-                sfix: "));}"
-            }
-        },
-        ext: {
-            seed: function (e) {
-                return (e || "") + "" + n
-            },
-            "default": function (e, t) {
-                return e || t
-            }
-        }
-    };
-    var v = function (e, t) {
-        if (e && e.length)
-            if (1 != e.length) {
-                var i = e.pop().split(":");
-                t.push("__MDF['" + i.shift() + "'](");
-                v(e, t);
-                if (i.length > 0) {
-                    var n = i.join(":");
-                    o(n);
-                    t.push("," + n)
-                }
-                t.push(")")
-            } else {
-                var s = e.pop();
-                o(s);
-                t.push("" == s ? '""' : s)
-            }
-    };
-    var $ = function (e, t) {
-        if (e) {
-            var i = e.split("\n");
-            if (i && i.length)
-                for (var n = 0, a = i.length, r; n < a; n++) {
-                    r = i[n];
-                    if (s) {
-                        r = r.trim();
-                        if (!r)
-                            continue
-                    }
-                    y(r, t);
-                    if (s && n < a - 1)
-                        t.push("__OUT.push('\\n');")
-                }
-        }
-    };
-    var y = {};
-    var C = function () {
-        var e = {
-            r: /\n|\\|\'/g,
-            "\n": "\\n",
-            "\\": "\\\\",
-            "'": "\\'"
-        };
-        var t = function (t) { };
-        return function (e, i) {
-            if (e)
-                i.push("__OUT.push('" + t(e) + "');")
-        }
-    }();
-    var w = {};
-    TrimPath.seed = function () {
-        return n
-    };
-    TrimPath.merge = {};
-    TrimPath.parse = function () {
-        var t = +new Date;
-        return function (i, n) {
-            if (!i)
-                return "";
-            n = n || "ck-" + t++;
-            if (null != e[n]) {
-                console.warn("jst template overwrited with key " + n);
-            }
-            e[n] = i;
-            return n
-        }
-    }()
-}();
 
 !function e(t, i) {
     "object" == typeof exports && "object" == typeof module ? module.exports = i() : "function" == typeof define && define.amd ? define("URSSM4", [], i) : "object" == typeof exports ? exports.URSSM4 = i() : t.URSSM4 = i()
@@ -811,7 +156,6 @@ MyFunc("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
         9579: function (e, t, i) {
 
             function n(e) {
-                console.log("222222");
                 for (var t = [], i = 0, n = e.length; i < n; i += 2)
                     t.push(parseInt(e.substr(i, 2), 16));
                 return t
@@ -963,8 +307,6 @@ MyFunc("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
                 , f = [462357, 472066609, 943670861, 1415275113, 1886879365, 2358483617, 2830087869, 3301692121, 3773296373, 4228057617, 404694573, 876298825, 1347903077, 1819507329, 2291111581, 2762715833, 3234320085, 3705924337, 4177462797, 337322537, 808926789, 1280531041, 1752135293, 2223739545, 2695343797, 3166948049, 3638552301, 4110090761, 269950501, 741554753, 1213159005, 1684763257];
             e.exports = {
                 encrypt: function (e, t, i) {
-                    var wodiu = c(e, t, 1, i);
-                    console.log("不是吧");
                     return c(e, t, 1, i)
                 },
                 decrypt: function (e, t, i) {
@@ -1956,7 +1298,8 @@ MyFunc("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
             }
         },
         1361: function (e) {
-            e.exports = "\t\n\x0B\f\r                　\u2028\u2029\ufeff"
+            // e.exports = "\t\n\x0B\f\r                　\u2028\u2029\ufeff"
+            e.exports = ""
         },
         9600: function (e, t, i) {
             "use strict";
@@ -2150,29 +1493,7 @@ MyFunc("e0793c838b68fed5a7e1742035643bec", function (e, t, i, n, s, a, r, o) {
             })
         },
         4953: function (e, t, i) {
-            var n = i(2109)
-                , s = i(7854)
-                , a = i(1702)
-                , r = i(1400)
-                , o = s.RangeError
-                , c = String.fromCharCode
-                , s = String.fromCodePoint
-                , d = a([].join);
-            n({
-                target: "String",
-                stat: !0,
-                forced: !!s && 1 != s.length
-            }, {
-                fromCodePoint: function (e) {
-                    for (var t, i = [], n = arguments.length, s = 0; s < n;) {
-                        if (t = +arguments[s++],
-                            r(t, 1114111) !== t)
-                            throw o(t + " is not a valid code point");
-                        i[s] = t < 65536 ? c(t) : c(55296 + ((t -= 65536) >> 10), t % 1024 + 56320)
-                    }
-                    return d(i, "")
-                }
-            })
+            console.log("?/");
         }
     },
         i = {},
@@ -2200,12 +1521,19 @@ function createRtId() {
 
 let rtId = createRtId();
 
-var str = `{"pd":"cbg","pkid":"aqpOBwV","pkht":"cbg.163.com","channel":0,"topURL":"https://xyq-m.cbg.163.com/cgi/mweb/show_login?back_url=%2Fcgi%2Fmweb%2Flogin%2Farea%3Fback_url%3Dhttps%253A%252F%252Fxyq-m.cbg.163.com%252Fcgi%252Fmweb%252Flogin%252Frole%252F35%252F416%253Fback_url%2","rtid":"${rtId}"}"`
+var str = {
+    channel: 0,
+    pd: "cbg",
+    pkid: "aqpOBwV",
+    rtid: "hmApBQFUb9EKTU4BiCbUP9UbQANtterf",
+    topURL: "https://xyq-m.cbg.163.com/cgi/mweb/show_login?back_url=%2Fcgi%2Fmweb%2Flogin%2Frecent-role%3Fback_url%3Dhttps%253A%252F%252Fxyq-m.cbg.163.com%252Fcgi%252Fmweb%252Flogin%252Frole%252F35%252F416%253Fbac",
+    un: "123123@163.com",
+}
 
 
 // console.log(window.URSSM4.encrypt(str, "BC60B8B9E4FFEFFA219E5AD77F11F9E2"));
 function createEncParams() {
-    return window.URSSM4.encrypt(str, "BC60B8B9E4FFEFFA219E5AD77F11F9E2");
+    return window.URSSM4.encrypt(JSON.stringify(str), "BC60B8B9E4FFEFFA219E5AD77F11F9E2");
 }
 window.createEncParams = createEncParams;
 console.log(createEncParams());
